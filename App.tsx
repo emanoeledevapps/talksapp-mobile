@@ -6,14 +6,37 @@ import { ThemeProvider } from '@shopify/restyle';
 import { theme } from './src/theme/theme';
 import { EyeOnIcon } from './src/assets/icons/EyeOnIcon';
 import { Icon } from './src/components/Icon/Icon';
+import { TextInput } from './src/components/TextInput/TextInput';
 
 function App(): React.JSX.Element {
     return (
         <ThemeProvider theme={theme}>
-            <SafeAreaView>
-                <Text preset='headingLarge' bold italic>teste</Text>
-               
-                <Icon name='eyeOff' size={20} color='errorLight'/>
+            <SafeAreaView style={{ backgroundColor: 'white', flex: 1, padding: 10 }}>
+                <Text preset='headingLarge' mb='s8'>Olá!</Text>
+                <Text preset='paragraphLarge' mb='s40'>Digite seu e-mail e senha para entrar</Text>
+
+                <TextInput
+                    label='E-mail'
+                    placeholder='Digite seu email'
+                    placeholderTextColor='#ddd'
+                />
+
+                <TextInput
+                    label='Senha'
+                    placeholder='Digite sua senha'
+                    placeholderTextColor='#ddd'
+                    errorMessage='Senha incorreta'
+                />
+
+                <Button
+                    title='Entrar'
+                    preset='primary'
+                />
+
+                <Button
+                    title='Cria uma conta'
+                    preset='outline'
+                />
             </SafeAreaView>
         </ThemeProvider>
     );
