@@ -11,7 +11,7 @@ function App(): React.JSX.Element {
             <SafeAreaView>
                 <Text preset='headingLarge' bold italic>teste</Text>
                 <Button title='Primary'></Button>
-                <Button title='Outline' preset='outline'></Button>
+                <Button title='Outline' loading preset='outline'></Button>
             </SafeAreaView>
         </ThemeProvider>
     );
