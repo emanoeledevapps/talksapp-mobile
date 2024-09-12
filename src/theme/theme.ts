@@ -57,3 +57,4 @@ export const theme = createTheme({
 })
 
 export type ThemeProps = typeof theme;
+export type ThemeColors = keyof ThemeProps['colors'];

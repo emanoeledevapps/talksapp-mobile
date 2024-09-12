@@ -10,7 +10,8 @@ function App(): React.JSX.Element {
         <ThemeProvider theme={theme}>
             <SafeAreaView>
                 <Text preset='headingLarge' bold italic>teste</Text>
-                <Button title='Entrar'></Button>
+                <Button title='Primary'></Button>
+                <Button title='Outline' preset='outline'></Button>
             </SafeAreaView>
         </ThemeProvider>
     );
