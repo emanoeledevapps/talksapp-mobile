@@ -19,6 +19,7 @@ function App(): React.JSX.Element {
                     label='E-mail'
                     placeholder='Digite seu email'
                     placeholderTextColor='#ddd'
+                    boxProps={{mb: 's20'}}
                 />
 
                 <TextInput
@@ -26,11 +27,14 @@ function App(): React.JSX.Element {
                     placeholder='Digite sua senha'
                     placeholderTextColor='#ddd'
                     errorMessage='Senha incorreta'
+                    RightComponent={<Icon name='eyeOn' color='grayBlack'/>}
+                    boxProps={{mb: 's40'}}
                 />
 
                 <Button
                     title='Entrar'
                     preset='primary'
+                    mb='s20'
                 />
 
                 <Button

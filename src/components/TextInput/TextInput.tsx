@@ -1,14 +1,16 @@
 import React, { useRef } from "react";
 import { Pressable, TextInput as RNTextInput, TextInputProps as RNTextInputProps } from "react-native";
-import { Box } from "../Box/Box";
+import { Box, BoxProps } from "../Box/Box";
 import { $fontFamily, $fontSizes, Text } from "../Text/Text";
 
 interface TextInputProps extends RNTextInputProps {
     label?: string;
     errorMessage?: string;
+    RightComponent?: React.ReactElement;
+    boxProps?: BoxProps;
 }
 
-export function TextInput({ label, errorMessage, ...props }: TextInputProps) {
+export function TextInput({ label, errorMessage, RightComponent, boxProps, ...props }: TextInputProps) {
     const inputRef = useRef<RNTextInput>(null);
 
     function focusInput() {
@@ -16,8 +18,8 @@ export function TextInput({ label, errorMessage, ...props }: TextInputProps) {
     }
 
     return (
-        <Pressable onPress={focusInput}>
-            <Box>
+        <Box {...boxProps}>
+            <Pressable onPress={focusInput}>
                 {label && (
                     <Text
                         preset="paragraphMedium"
@@ -31,16 +33,26 @@ export function TextInput({ label, errorMessage, ...props }: TextInputProps) {
                     borderColor={errorMessage ? "error" : "gray4"}
                     p='s16'
                     borderRadius="s12"
+                    flexDirection="row"
+                    alignItems="center"
                 >
                     <RNTextInput
                         ref={inputRef}
                         style={{
                             padding: 0,
                             fontFamily: $fontFamily.regular,
+                            flexGrow: 1,
+                            flexShrink: 1,
                             ...$fontSizes.paragraphMedium
                         }}
                         {...props}
                     />
+
+                    {RightComponent && (
+                        <Box ml='s16' justifyContent="center">
+                            {RightComponent}
+                        </Box>
+                    )}
                 </Box>
 
                 {errorMessage && (
@@ -48,7 +60,7 @@ export function TextInput({ label, errorMessage, ...props }: TextInputProps) {
                         {errorMessage}
                     </Text>
                 )}
-            </Box>
-        </Pressable>
+            </Pressable>
+        </Box>
     )
 }
