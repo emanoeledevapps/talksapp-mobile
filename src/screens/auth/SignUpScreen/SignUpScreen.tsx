@@ -4,6 +4,7 @@ import { Text } from "../../../components/Text/Text";
 import { TextInput } from "../../../components/TextInput/TextInput";
 import { Icon } from "../../../components/Icon/Icon";
 import { Button } from "../../../components/Button/Button";
+import { PasswordInput } from "../../../components/PasswordInput/PasswordInput";
 
 export function SignUpScreen() {
 
@@ -12,7 +13,7 @@ export function SignUpScreen() {
     }
     
     return (
-        <Screen>
+        <Screen scrollable>
             <Text preset="headingLarge" mb='s32'>Crie uma conta</Text>
 
             <TextInput
@@ -36,12 +37,10 @@ export function SignUpScreen() {
                 boxProps={{ mb: 's20' }}
             />
 
-            <TextInput
-                label='Senha'
+            <PasswordInput
                 placeholder='Digite sua senha'
                 placeholderTextColor='#ddd'
-                RightComponent={<Icon name='eyeOn' color='grayBlack' />}
-                boxProps={{ mb: 's48' }}
+                label="Senha"
             />
 
             <Button

@@ -8,7 +8,10 @@ interface Props{
 
 export function ScrollViewContainer({children, backgroundColor}: Props){
     return(
-        <ScrollView style={{backgroundColor}}>
+        <ScrollView 
+            style={{backgroundColor, flex: 1}}
+            keyboardShouldPersistTaps='handled'
+        >
             {children}
         </ScrollView>
     )
@@ -18,7 +21,7 @@ export function ViewContainer({children, backgroundColor}: Props){
     const {height} = useWindowDimensions();
 
     return(
-        <View style={{backgroundColor, height}}>
+        <View style={{backgroundColor, flex: 1}}>
             {children}
         </View>
     )

@@ -2,8 +2,9 @@ import React, { useRef } from "react";
 import { Pressable, TextInput as RNTextInput, TextInputProps as RNTextInputProps } from "react-native";
 import { Box, BoxProps } from "../Box/Box";
 import { $fontFamily, $fontSizes, Text } from "../Text/Text";
+import { useAppTheme } from "../../hooks/useAppTheme";
 
-interface TextInputProps extends RNTextInputProps {
+export interface TextInputProps extends RNTextInputProps {
     label?: string;
     errorMessage?: string;
     RightComponent?: React.ReactElement;
@@ -11,6 +12,7 @@ interface TextInputProps extends RNTextInputProps {
 }
 
 export function TextInput({ label, errorMessage, RightComponent, boxProps, ...props }: TextInputProps) {
+    const {colors} = useAppTheme();
     const inputRef = useRef<RNTextInput>(null);
 
     function focusInput() {
@@ -43,6 +45,7 @@ export function TextInput({ label, errorMessage, RightComponent, boxProps, ...pr
                             fontFamily: $fontFamily.regular,
                             flexGrow: 1,
                             flexShrink: 1,
+                            color: colors.backgroundContrast,
                             ...$fontSizes.paragraphMedium
                         }}
                         {...props}
