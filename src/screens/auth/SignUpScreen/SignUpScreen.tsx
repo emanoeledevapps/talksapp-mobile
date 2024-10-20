@@ -13,7 +13,7 @@ export function SignUpScreen() {
     }
     
     return (
-        <Screen scrollable>
+        <Screen canGoBack scrollable>
             <Text preset="headingLarge" mb='s32'>Crie uma conta</Text>
 
             <TextInput
