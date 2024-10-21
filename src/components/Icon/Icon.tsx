@@ -29,20 +29,23 @@ import { SearchIcon } from "../../assets/icons/SearchIcon";
 import { SettingsIcon } from "../../assets/icons/SettingsIcon";
 import { TrashIcon } from "../../assets/icons/TrashIcon";
 import { Pressable } from "react-native";
+import { CheckRoundIcon } from "../../assets/icons/CheckRoundIcon";
+import { ErrorRoundIcon } from "../../assets/icons/ErrorRoundIcon";
+import { MessageRoundIcon } from "../../assets/icons/MessageRoundIcon";
 
 export interface IconBase {
     size?: number;
     color?: string;
 }
 
-interface Props {
+export interface IconProps {
     name: IconNames;
     size?: number;
     color: ThemeColors;
     onPress?: () => void;
 }
 
-export function Icon({ name, size, color = 'backgroundContrast', onPress }: Props) {
+export function Icon({ name, size, color = 'backgroundContrast', onPress }: IconProps) {
     const SVGIcon = icons[name];
     const { colors } = useAppTheme();
 
@@ -68,10 +71,12 @@ const icons = {
     chat: ChatIcon,
     chatOn: ChatOnIcon,
     check: CheckIcon,
+    checkRound: CheckRoundIcon,
     comment: CommentIcon,
     chevronRight: ChevronRightIcon,
     eyeOn: EyeOnIcon,
     eyeOff: EyeOffIcon,
+    errorRound: ErrorRoundIcon,
     flashOn: FlashOnIcon,
     flashOff: FlashOffIcon,
     heart: HeartIcon,
@@ -79,6 +84,7 @@ const icons = {
     home: HomeIcon,
     homeFill: HomeFillIcon,
     message: MessageIcon,
+    messageRound: MessageRoundIcon,
     newPost: NewPostIcon,
     profile: ProfileIcon,
     profileFill: ProfileFillIcon,
