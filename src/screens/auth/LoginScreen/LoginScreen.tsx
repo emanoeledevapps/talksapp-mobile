@@ -11,6 +11,11 @@ import { RootStackParamList } from "../../../routes/Routes";
 type ScreenProps = NativeStackScreenProps<RootStackParamList, 'LoginScreen'>
 
 export function LoginScreen({navigation}: ScreenProps) {
+
+    function handleForgotPassword(){
+        navigation.navigate('ForgotPasswordScreen');
+    }
+    
     return (
         <Screen>
             <Text preset='headingLarge' mb='s8'>Olá!</Text>
@@ -27,15 +32,23 @@ export function LoginScreen({navigation}: ScreenProps) {
                 label='Senha'
                 placeholder='Digite sua senha'
                 placeholderTextColor='#ddd'
-                errorMessage='Senha incorreta'
                 RightComponent={<Icon name='eyeOn' color='grayBlack' />}
-                boxProps={{ mb: 's40' }}
+                boxProps={{ mb: 's4' }}
             />
+
+            <Text 
+                preset="paragraphSmall" 
+                color="primary"
+                bold
+                onPress={handleForgotPassword} 
+            >
+                Esqueci minha senha
+            </Text>
 
             <Button
                 title='Entrar'
                 preset='primary'
-                mb='s20'
+                my='s20'
             />
 
             <Button
