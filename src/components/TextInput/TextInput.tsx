@@ -12,7 +12,7 @@ export interface TextInputProps extends RNTextInputProps {
 }
 
 export function TextInput({ label, errorMessage, RightComponent, boxProps, ...props }: TextInputProps) {
-    const {colors} = useAppTheme();
+    const { colors } = useAppTheme();
     const inputRef = useRef<RNTextInput>(null);
 
     function focusInput() {
@@ -39,6 +39,7 @@ export function TextInput({ label, errorMessage, RightComponent, boxProps, ...pr
                     alignItems="center"
                 >
                     <RNTextInput
+                        autoCapitalize="none"
                         ref={inputRef}
                         style={{
                             padding: 0,
