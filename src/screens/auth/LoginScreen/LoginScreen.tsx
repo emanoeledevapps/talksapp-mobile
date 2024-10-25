@@ -1,21 +1,20 @@
 import React from "react";
 import { Text } from "../../../components/Text/Text";
-import { TextInput } from "../../../components/TextInput/TextInput";
 import { Button } from "../../../components/Button/Button";
 import { Screen } from "../../../components/Screen/Screen";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../../routes/Routes";
-import { useForm, Controller } from 'react-hook-form';
-import { PasswordInput } from "../../../components/PasswordInput/PasswordInput";
+import { useForm } from 'react-hook-form';
+import { loginSchema, LoginSchemaType } from "./loginSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { FormTextInput } from "../../../components/Form/FormTextInput";
+import { FormPasswordInput } from "../../../components/Form/FormPasswordInput";
 
-type LoginFormType = {
-    email: string;
-    password: string;
-}
 type ScreenProps = NativeStackScreenProps<RootStackParamList, 'LoginScreen'>
 
 export function LoginScreen({ navigation }: ScreenProps) {
-    const { control, formState, handleSubmit } = useForm<LoginFormType>({
+    const { control, formState, handleSubmit } = useForm<LoginSchemaType>({
+        resolver: zodResolver(loginSchema),
         defaultValues: {
             email: '',
             password: '',
@@ -23,8 +22,8 @@ export function LoginScreen({ navigation }: ScreenProps) {
         mode: 'onChange'
     });
 
-    function submiForm({ email, password }: LoginFormType) {
-        console.log(email);
+    function submiForm(formData: LoginSchemaType) {
+        console.log(formData);
     }
 
     function handleForgotPassword() {
@@ -36,52 +35,23 @@ export function LoginScreen({ navigation }: ScreenProps) {
             <Text preset='headingLarge' mb='s8'>Olá!</Text>
             <Text preset='paragraphLarge' mb='s40'>Digite seu e-mail e senha para entrar</Text>
 
-            <Controller
+            <FormTextInput
                 control={control}
                 name="email"
-                rules={{
-                    required: 'E-mail obrigatório',
-                    pattern: {
-                        value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
-                        message: 'E-mail inválido'
-                    }
-                }}
-                render={({ field, fieldState: {error} }) => (
-                    <TextInput
-                        value={field.value}
-                        onChangeText={field.onChange}
-                        errorMessage={error?.message}
-                        label='E-mail'
-                        placeholder='Digite seu email'
-                        placeholderTextColor='#ddd'
-                        boxProps={{ mb: 's20' }}
-                    />
-                )}
+                label='E-mail'
+                placeholder='Digite seu email'
+                placeholderTextColor='#ddd'
+                boxProps={{ mb: 's20' }}
             />
 
-            <Controller
+            <FormPasswordInput
                 control={control}
                 name="password"
-                rules={{
-                    required: 'Senha obrigatória',
-                    minLength: {
-                        value: 6,
-                        message: 'Sua senha deve conter 6 caracteres'
-                    }
-                }}
-                render={({field, fieldState: {error}}) => (
-                    <PasswordInput
-                        value={field.value}
-                        onChangeText={field.onChange}
-                        errorMessage={error?.message}
-                        label='Senha'
-                        placeholder='Digite sua senha'
-                        placeholderTextColor='#ddd'
-                        boxProps={{ mb: 's4' }}
-                    />
-                )}
+                label='Senha'
+                placeholder='Digite sua senha'
+                placeholderTextColor='#ddd'
+                boxProps={{ mb: 's4' }}
             />
-
 
             <Text
                 preset="paragraphSmall"
