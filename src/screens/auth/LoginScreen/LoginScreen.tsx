@@ -1,8 +1,6 @@
 import React from "react";
-import { Box } from "../../../components/Box/Box";
 import { Text } from "../../../components/Text/Text";
 import { TextInput } from "../../../components/TextInput/TextInput";
-import { Icon } from "../../../components/Icon/Icon";
 import { Button } from "../../../components/Button/Button";
 import { Screen } from "../../../components/Screen/Screen";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
