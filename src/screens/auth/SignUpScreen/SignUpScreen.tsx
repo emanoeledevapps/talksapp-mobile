@@ -29,14 +29,14 @@ export function SignUpScreen({ navigation }: ScreenProps) {
     function submitForm(formData: SignUpSchemaType) {
         console.log(formData);
 
-        // reset({
-        //     title: 'Sua conta foi criada com sucesso!',
-        //     description: 'Agora é só fazer login na nossa plataforma',
-        //     icon:{
-        //         name: 'checkRound',
-        //         color: 'success',
-        //     }
-        // });
+        reset({
+            title: 'Sua conta foi criada com sucesso!',
+            description: 'Agora é só fazer login na nossa plataforma',
+            icon:{
+                name: 'checkRound',
+                color: 'success',
+            }
+        });
     }
 
     return (
