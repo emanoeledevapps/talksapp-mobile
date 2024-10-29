@@ -1,10 +1,6 @@
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
-import { Text } from '../Text/Text';
-import { useTheme } from '@shopify/restyle';
-import { ThemeColors, ThemeProps } from '../../theme/theme';
-import { TouchableOpacityBox, TouchableOpacityBoxProps } from '../Box/Box';
-import { ActivityIndicator } from '../ActivityIndicator/ActivityIndicator';
+import { ThemeColors } from '@theme';
+import { TouchableOpacityBox, TouchableOpacityBoxProps, ActivityIndicator, Text } from '@components';
 
 export type ButtonPreset = 'primary' | 'outline';
 

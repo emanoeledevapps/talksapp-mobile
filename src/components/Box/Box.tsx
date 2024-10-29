@@ -13,7 +13,7 @@ import {
     spacingShorthand,
     SpacingShorthandProps
 } from "@shopify/restyle";
-import { ThemeProps } from "../../theme/theme";
+import { ThemeProps } from "@theme";
 
 export const Box = createBox<ThemeProps>();
 export type BoxProps = React.ComponentProps<typeof Box>;
