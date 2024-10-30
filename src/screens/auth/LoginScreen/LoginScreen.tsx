@@ -1,10 +1,13 @@
-import React from "react";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import React from 'react';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useForm } from 'react-hook-form';
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Text, Button, Screen, FormTextInput, FormPasswordInput } from "@components";
+
+import { Text, Button, Screen, FormTextInput, FormPasswordInput } from '@components';
 import { RootStackParamList } from '@routes';
-import { loginSchema, LoginSchemaType } from "./loginSchema";
+
+import { loginSchema, LoginSchemaType } from './loginSchema';
 
 type ScreenProps = NativeStackScreenProps<RootStackParamList, 'LoginScreen'>
 
@@ -15,7 +18,7 @@ export function LoginScreen({ navigation }: ScreenProps) {
             email: '',
             password: '',
         },
-        mode: 'onChange'
+        mode: 'onChange',
     });
 
     function submiForm(formData: LoginSchemaType) {
@@ -28,24 +31,24 @@ export function LoginScreen({ navigation }: ScreenProps) {
 
     return (
         <Screen>
-            <Text preset='headingLarge' mb='s8'>Olá!</Text>
-            <Text preset='paragraphLarge' mb='s40'>Digite seu e-mail e senha para entrar</Text>
+            <Text preset="headingLarge" mb="s8">Olá!</Text>
+            <Text preset="paragraphLarge" mb="s40">Digite seu e-mail e senha para entrar</Text>
 
             <FormTextInput
                 control={control}
                 name="email"
-                label='E-mail'
-                placeholder='Digite seu email'
-                placeholderTextColor='#ddd'
+                label="E-mail"
+                placeholder="Digite seu email"
+                placeholderTextColor="#ddd"
                 boxProps={{ mb: 's20' }}
             />
 
             <FormPasswordInput
                 control={control}
                 name="password"
-                label='Senha'
-                placeholder='Digite sua senha'
-                placeholderTextColor='#ddd'
+                label="Senha"
+                placeholder="Digite sua senha"
+                placeholderTextColor="#ddd"
                 boxProps={{ mb: 's4' }}
             />
 
@@ -59,20 +62,20 @@ export function LoginScreen({ navigation }: ScreenProps) {
             </Text>
 
             <Button
-                title='Entrar'
-                preset='primary'
-                my='s20'
+                title="Entrar"
+                preset="primary"
+                my="s20"
                 onPress={handleSubmit(submiForm)}
                 disabled={!formState.isValid}
             />
 
             <Button
-                title='Cria uma conta'
-                preset='outline'
+                title="Cria uma conta"
+                preset="outline"
                 onPress={() => {
-                    navigation.navigate('SignUpScreen')
+                    navigation.navigate('SignUpScreen');
                 }}
             />
         </Screen>
-    )
+    );
 }

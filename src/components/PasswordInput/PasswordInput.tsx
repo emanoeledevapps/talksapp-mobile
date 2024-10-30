@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { TextInput, TextInputProps, Icon } from "@components";
+import React, { useState } from 'react';
+
+import { TextInput, TextInputProps, Icon } from '@components';
 
 export type PasswordInputProps = Omit<TextInputProps, 'RightComponent'>;
 
@@ -15,12 +16,12 @@ export function PasswordInput(props: PasswordInputProps) {
             secureTextEntry={isSecureTextEntry}
             {...props}
             RightComponent={
-                <Icon 
-                    color="gray2" 
-                    name={isSecureTextEntry ? 'eyeOn' : 'eyeOff'} 
+                <Icon
+                    color="gray2"
+                    name={isSecureTextEntry ? 'eyeOn' : 'eyeOff'}
                     onPress={toggleSecureText}
                 />
             }
         />
-    )
+    );
 }

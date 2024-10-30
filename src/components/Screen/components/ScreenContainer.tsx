@@ -1,5 +1,5 @@
-import React from "react";
-import { ScrollView, useWindowDimensions, View } from "react-native";
+import React from 'react';
+import { ScrollView, useWindowDimensions, View } from 'react-native';
 
 interface Props{
     children: React.ReactNode;
@@ -8,13 +8,13 @@ interface Props{
 
 export function ScrollViewContainer({children, backgroundColor}: Props){
     return(
-        <ScrollView 
+        <ScrollView
             style={{backgroundColor, flex: 1}}
-            keyboardShouldPersistTaps='handled'
+            keyboardShouldPersistTaps="handled"
         >
             {children}
         </ScrollView>
-    )
+    );
 }
 
 export function ViewContainer({children, backgroundColor}: Props){
@@ -24,5 +24,5 @@ export function ViewContainer({children, backgroundColor}: Props){
         <View style={{backgroundColor, flex: 1}}>
             {children}
         </View>
-    )
+    );
 }

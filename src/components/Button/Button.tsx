@@ -1,6 +1,7 @@
 import React from 'react';
-import { ThemeColors } from '@theme';
+
 import { TouchableOpacityBox, TouchableOpacityBoxProps, ActivityIndicator, Text } from '@components';
+import { ThemeColors } from '@theme';
 
 export type ButtonPreset = 'primary' | 'outline';
 
@@ -22,14 +23,14 @@ const buttonPresets: Record<ButtonPreset, {default: ButtonUI, disabled: ButtonUI
             container:{
                 backgroundColor: 'primary',
             },
-            content: 'primaryContrast'
+            content: 'primaryContrast',
         },
         disabled:{
             container:{
                 backgroundColor: 'gray4',
             },
-            content: 'gray2'
-        }
+            content: 'gray2',
+        },
     },
     outline:{
         default:{
@@ -37,42 +38,42 @@ const buttonPresets: Record<ButtonPreset, {default: ButtonUI, disabled: ButtonUI
                 borderWidth: 1,
                 borderColor: 'primary',
             },
-            content: 'primary'
+            content: 'primary',
         },
         disabled:{
             container:{
                 borderWidth: 1,
                 borderColor: 'gray4',
             },
-            content: 'gray2'
-        }
-    }
-}
+            content: 'gray2',
+        },
+    },
+};
 
 export function Button({
-    title, 
-    loading, 
+    title,
+    loading,
     preset = 'primary',
     disabled,
     ...touchableOpacityBoxProps
 }: ButtonProps){
-    const buttonPreset = buttonPresets[preset][disabled ? 'disabled' : 'default']
+    const buttonPreset = buttonPresets[preset][disabled ? 'disabled' : 'default'];
 
     return(
         <TouchableOpacityBox
             disabled={disabled || loading}
             height={50}
-            borderRadius='s16'
-            alignItems='center'
-            justifyContent='center'
+            borderRadius="s16"
+            alignItems="center"
+            justifyContent="center"
             {...buttonPreset.container}
             {...touchableOpacityBoxProps}
         >
             {loading ? (
                 <ActivityIndicator color={buttonPreset.content}/>
             ) : (
-                <Text 
-                    preset='paragraphMedium' 
+                <Text
+                    preset="paragraphMedium"
                     bold
                     color={buttonPreset.content}
                 >

@@ -1,11 +1,14 @@
-import React from "react";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import React from 'react';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import {useForm} from 'react-hook-form';
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Text, Button, Screen, FormTextInput } from "@components";
-import { RootStackParamList } from "@routes";
-import { useResetNavigationSuccess } from "@hooks";
-import { forgotPasswordSchema, ForgotPasswordSchemaType } from "./forgotPasswordSchema";
+
+import { Text, Button, Screen, FormTextInput } from '@components';
+import { useResetNavigationSuccess } from '@hooks';
+import { RootStackParamList } from '@routes';
+
+import { forgotPasswordSchema, ForgotPasswordSchemaType } from './forgotPasswordSchema';
 
 type ScreenProps = NativeStackScreenProps<RootStackParamList, 'ForgotPasswordScreen'>
 export function ForgotPasswordScreen({navigation}: ScreenProps){
@@ -26,17 +29,17 @@ export function ForgotPasswordScreen({navigation}: ScreenProps){
             description: 'Clique no link enviado no seu e-mail para recuperar sua senha',
             icon: {
                 name: 'messageRound',
-                color: 'greenPrimary'
-            }
+                color: 'greenPrimary',
+            },
         });
     }
-    
+
     return(
         <Screen
             canGoBack
         >
             <Text preset="headingLarge">Esqueci minha senha</Text>
-            <Text preset="paragraphLarge" mt='s24'>Digite seu e-mail e enviaremos as instruções para redefinição de senha</Text>
+            <Text preset="paragraphLarge" mt="s24">Digite seu e-mail e enviaremos as instruções para redefinição de senha</Text>
 
             <FormTextInput
                 control={control}
@@ -46,12 +49,12 @@ export function ForgotPasswordScreen({navigation}: ScreenProps){
                 boxProps={{mt: 's24'}}
             />
 
-            <Button 
-                title='Recuperar minha senha' 
-                mt='s24' 
+            <Button
+                title="Recuperar minha senha"
+                mt="s24"
                 disabled={!formState.isValid}
                 onPress={handleSubmit(submitForm)}
             />
         </Screen>
-    )
+    );
 }

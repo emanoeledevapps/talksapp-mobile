@@ -12,10 +12,10 @@ export const signUpSchema = z.object({
             return value
                 .split(' ')
                 .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-                .join(' ')
+                .join(' ');
         }),
     email: z.string().email('E-mail inválido'),
-    password: z.string().min(8, 'Senha deve ter no mínimo 8 caracteres')
+    password: z.string().min(8, 'Senha deve ter no mínimo 8 caracteres'),
 });
 
 export type SignUpSchemaType = z.infer<typeof signUpSchema>;

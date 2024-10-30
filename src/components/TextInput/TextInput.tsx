@@ -1,8 +1,9 @@
-import React, { useRef } from "react";
-import { Pressable, TextInput as RNTextInput, TextInputProps as RNTextInputProps } from "react-native";
-import { Box, BoxProps } from "@components";
-import { $fontFamily, $fontSizes, Text } from "@components";
-import { useAppTheme } from "@hooks";
+import React, { useRef } from 'react';
+import { Pressable, TextInput as RNTextInput, TextInputProps as RNTextInputProps } from 'react-native';
+
+import { Box, BoxProps } from '@components';
+import { $fontFamily, $fontSizes, Text } from '@components';
+import { useAppTheme } from '@hooks';
 
 export interface TextInputProps extends RNTextInputProps {
     label?: string;
@@ -25,15 +26,15 @@ export function TextInput({ label, errorMessage, RightComponent, boxProps, ...pr
                 {label && (
                     <Text
                         preset="paragraphMedium"
-                        mb='s4'
+                        mb="s4"
                     >
                         {label}
                     </Text>
                 )}
                 <Box
                     borderWidth={errorMessage ? 2 : 1}
-                    borderColor={errorMessage ? "error" : "gray4"}
-                    p='s16'
+                    borderColor={errorMessage ? 'error' : 'gray4'}
+                    p="s16"
                     borderRadius="s12"
                     flexDirection="row"
                     alignItems="center"
@@ -47,13 +48,13 @@ export function TextInput({ label, errorMessage, RightComponent, boxProps, ...pr
                             flexGrow: 1,
                             flexShrink: 1,
                             color: colors.backgroundContrast,
-                            ...$fontSizes.paragraphMedium
+                            ...$fontSizes.paragraphMedium,
                         }}
                         {...props}
                     />
 
                     {RightComponent && (
-                        <Box ml='s16' justifyContent="center">
+                        <Box ml="s16" justifyContent="center">
                             {RightComponent}
                         </Box>
                     )}
@@ -66,5 +67,5 @@ export function TextInput({ label, errorMessage, RightComponent, boxProps, ...pr
                 )}
             </Pressable>
         </Box>
-    )
+    );
 }

@@ -1,6 +1,8 @@
 import React from 'react';
 import { TextStyle } from 'react-native';
+
 import { createText } from '@shopify/restyle';
+
 import { ThemeProps } from '@theme';
 
 const SRText = createText<ThemeProps>();
@@ -16,14 +18,14 @@ interface TextProps extends SRTextProps{
 export function Text({children, preset = 'paragraphMedium', style, bold, semiBold, italic,...rest}: TextProps){
     const fontFamily = getFontFamily(preset, bold, semiBold, italic);
     return(
-        <SRText 
-            color='backgroundContrast'
+        <SRText
+            color="backgroundContrast"
             style={[style, $fontSizes[preset], {fontFamily}]}
             {...rest}
         >
             {children}
         </SRText>
-    )
+    );
 }
 
 function getFontFamily(preset: TextVariants, bold?: boolean, semiBold?: boolean, italic?: boolean){
@@ -47,29 +49,29 @@ function getFontFamily(preset: TextVariants, bold?: boolean, semiBold?: boolean,
     }
 }
 
-type TextVariants = 
-    "headingLarge" 
-    | "headingMedium" 
-    | "headingSmall" 
-    | "paragraphLarge" 
-    | "paragraphMedium" 
-    | "paragraphSmall" 
-    | "paragraphCaption"
-    | "paragraphCaptionSmall"
+type TextVariants =
+    'headingLarge'
+    | 'headingMedium'
+    | 'headingSmall'
+    | 'paragraphLarge'
+    | 'paragraphMedium'
+    | 'paragraphSmall'
+    | 'paragraphCaption'
+    | 'paragraphCaptionSmall'
 ;
 
 export const $fontSizes: Record<TextVariants, TextStyle> = {
     headingLarge: {fontSize: 32, lineHeight: 38.4},
     headingMedium: {fontSize: 22, lineHeight: 26.4},
     headingSmall: {fontSize: 18, lineHeight: 23.4},
-  
+
     paragraphLarge: {fontSize: 18, lineHeight: 25.2},
     paragraphMedium: {fontSize: 16, lineHeight: 22.4},
     paragraphSmall: {fontSize: 14, lineHeight: 19.6},
-  
+
     paragraphCaption: {fontSize: 12, lineHeight: 16.8},
     paragraphCaptionSmall: {fontSize: 10, lineHeight: 14},
-}
+};
 
 export const $fontFamily = {
     blackItalic: 'Satoshi-BlackItalic',
@@ -80,5 +82,5 @@ export const $fontFamily = {
     lightItalic: 'Satoshi-LightItalic',
     medium: 'Satoshi-Medium',
     mediumItalic: 'Satoshi-MediumItalic',
-    regular: 'Satoshi-Regular'
-}
+    regular: 'Satoshi-Regular',
+};

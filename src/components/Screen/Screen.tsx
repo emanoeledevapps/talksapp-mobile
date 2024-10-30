@@ -1,12 +1,18 @@
-import React from "react";
-import { Box, TouchableOpacityBox } from "../Box/Box";
-import { useAppSafeArea } from "@hooks";
-import { Icon } from "../Icon/Icon";
-import { Text } from "../Text/Text";
-import { KeyboardAvoidingView, Platform } from "react-native";
-import { ScrollViewContainer, ViewContainer } from "@components";
-import { useAppTheme } from "@hooks";
-import { useNavigation } from "@react-navigation/native";
+import React from 'react';
+import { KeyboardAvoidingView, Platform } from 'react-native';
+
+import { useNavigation } from '@react-navigation/native';
+
+import { ScrollViewContainer, ViewContainer } from '@components';
+import { useAppSafeArea } from '@hooks';
+import { useAppTheme } from '@hooks';
+
+import { Box, TouchableOpacityBox } from '../Box/Box';
+import { Icon } from '../Icon/Icon';
+import { Text } from '../Text/Text';
+
+
+
 
 interface ScreenProps {
     children: React.ReactNode;
@@ -34,18 +40,18 @@ export function Screen({ children, canGoBack = false, scrollable = false }: Scre
                     backgroundColor="grayWhite"
                 >
                     {canGoBack && (
-                        <TouchableOpacityBox 
-                            mb='s24' 
+                        <TouchableOpacityBox
+                            mb="s24"
                             flexDirection="row"
                             onPress={navigation.goBack}
                         >
-                            <Icon name='arrowLeft' color='primary' />
-                            <Text ml='s8' preset="paragraphMedium" semiBold>Voltar</Text>
+                            <Icon name="arrowLeft" color="primary" />
+                            <Text ml="s8" preset="paragraphMedium" semiBold>Voltar</Text>
                         </TouchableOpacityBox>
                     )}
                     {children}
                 </Box>
             </Container>
         </KeyboardAvoidingView>
-    )
+    );
 }

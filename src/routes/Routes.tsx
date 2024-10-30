@@ -1,11 +1,13 @@
-import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { LoginScreen } from "../screens/auth/LoginScreen/LoginScreen";
-import { SignUpScreen } from "../screens/auth/SignUpScreen/SignUpScreen";
-import { SuccessScreen } from "../screens/auth/SuccessScreen/SuccessScreen";
-import { IconProps } from "../components/Icon/Icon";
-import { ForgotPasswordScreen } from "../screens/auth/ForgotPasswordScreen/ForgotPasswordScreen";
+import React from 'react';
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import { IconProps } from '../components/Icon/Icon';
+import { ForgotPasswordScreen } from '../screens/auth/ForgotPasswordScreen/ForgotPasswordScreen';
+import { LoginScreen } from '../screens/auth/LoginScreen/LoginScreen';
+import { SignUpScreen } from '../screens/auth/SignUpScreen/SignUpScreen';
+import { SuccessScreen } from '../screens/auth/SuccessScreen/SuccessScreen';
 
 export type RootStackParamList = {
     LoginScreen: undefined;
@@ -26,14 +28,14 @@ export function Router(){
             <Stack.Navigator
                 screenOptions={{
                     headerShown: false,
-                    fullScreenGestureEnabled: true
+                    fullScreenGestureEnabled: true,
                 }}
             >
-                <Stack.Screen name='LoginScreen' component={LoginScreen}/>
-                <Stack.Screen name='SignUpScreen' component={SignUpScreen}/>
-                <Stack.Screen name='SuccessScreen' component={SuccessScreen}/>
-                <Stack.Screen name='ForgotPasswordScreen' component={ForgotPasswordScreen}/>
+                <Stack.Screen name="LoginScreen" component={LoginScreen}/>
+                <Stack.Screen name="SignUpScreen" component={SignUpScreen}/>
+                <Stack.Screen name="SuccessScreen" component={SuccessScreen}/>
+                <Stack.Screen name="ForgotPasswordScreen" component={ForgotPasswordScreen}/>
             </Stack.Navigator>
         </NavigationContainer>
-    )
+    );
 }
