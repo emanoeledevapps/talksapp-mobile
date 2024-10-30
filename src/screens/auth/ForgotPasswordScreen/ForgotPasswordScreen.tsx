@@ -11,7 +11,7 @@ import { RootStackParamList } from '@routes';
 import { forgotPasswordSchema, ForgotPasswordSchemaType } from './forgotPasswordSchema';
 
 type ScreenProps = NativeStackScreenProps<RootStackParamList, 'ForgotPasswordScreen'>
-export function ForgotPasswordScreen({navigation}: ScreenProps){
+export function ForgotPasswordScreen({}: ScreenProps){
     const {reset} = useResetNavigationSuccess();
     const {control, formState, handleSubmit} = useForm<ForgotPasswordSchemaType>({
         resolver: zodResolver(forgotPasswordSchema),

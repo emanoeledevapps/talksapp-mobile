@@ -12,7 +12,7 @@ import { RootStackParamList } from '../../../routes/Routes';
 import { signUpSchema, SignUpSchemaType } from './singUpSchema';
 
 type ScreenProps = NativeStackScreenProps<RootStackParamList, 'SignUpScreen'>
-export function SignUpScreen({ navigation }: ScreenProps) {
+export function SignUpScreen({}: ScreenProps) {
     const { reset } = useResetNavigationSuccess();
     const { control, formState, handleSubmit } = useForm<SignUpSchemaType>({
         resolver: zodResolver(signUpSchema),
