@@ -2,7 +2,6 @@ import React from 'react';
 
 import {Screen, Text } from '@components';
 
-const teste = ''
 export function SettingsScreen(){
     return(
         <Screen
