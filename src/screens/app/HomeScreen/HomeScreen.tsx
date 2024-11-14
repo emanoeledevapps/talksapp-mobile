@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { AppScreenProps } from 'src/routes/navigationType';
+import { AppTabScreenProps } from 'src/routes/navigationType';
 
 import { Button, Screen, Text } from '@components';
 
-export function HomeScreen({navigation}: AppScreenProps<'HomeScreen'>){
+export function HomeScreen({navigation}: AppTabScreenProps<'HomeScreen'>){
 
     function navigateToSettings(){
         navigation.navigate('SettingsScreen');
@@ -15,6 +15,7 @@ export function HomeScreen({navigation}: AppScreenProps<'HomeScreen'>){
             <Text preset="headingLarge">HomeScreen</Text>
 
             <Button title="Settings" onPress={navigateToSettings}/>
+            <Button title="Favorite" mt="s16" onPress={() => navigation.navigate('FavoriteScreen')}/>
         </Screen>
     );
 }
