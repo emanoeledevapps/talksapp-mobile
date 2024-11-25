@@ -1,21 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { FlatList, ListRenderItemInfo } from 'react-native';
 
+import { Post, postService } from '@models';
 import { AppTabScreenProps } from 'src/routes/navigationType';
 
-import { Button, Screen, Text } from '@components';
+import { Screen, PostItem } from '@components';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function HomeScreen({navigation}: AppTabScreenProps<'HomeScreen'>){
+    const [postList, setPostList] = useState<Post[]>([]);
 
-    function navigateToSettings(){
-        navigation.navigate('SettingsScreen');
+    useEffect(() => {
+        postService.getList().then(list => setPostList(list));
+    }, []);
+
+    function renderPostItem({item}: ListRenderItemInfo<Post>){
+        return(
+            <PostItem post={item}/>
+        );
     }
-
     return(
         <Screen>
-            <Text preset="headingLarge">HomeScreen</Text>
-
-            <Button title="Settings" onPress={navigateToSettings}/>
-            <Button title="Favorite" mt="s16" onPress={() => navigation.navigate('FavoriteScreen')}/>
+            <FlatList
+                data={postList}
+                keyExtractor={(item) => item.id}
+                renderItem={renderPostItem}
+            />
         </Screen>
     );
 }
