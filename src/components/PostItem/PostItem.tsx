@@ -16,6 +16,7 @@ export function PostItem({post}: Props){
     return(
         <Box
             marginBottom="s20"
+            marginHorizontal="s24"
         >
             <PostHeader author={post.author}/>
             <PostImage imageURL={post.imageURL}/>

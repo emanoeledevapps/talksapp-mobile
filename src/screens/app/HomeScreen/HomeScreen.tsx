@@ -20,7 +20,7 @@ export function HomeScreen({navigation}: AppTabScreenProps<'HomeScreen'>){
         );
     }
     return(
-        <Screen>
+        <Screen style={{paddingBottom: 0, paddingTop: 0, paddingHorizontal: 0}}>
             <FlatList
                 data={postList}
                 keyExtractor={(item) => item.id}

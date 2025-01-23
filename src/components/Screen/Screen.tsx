@@ -7,20 +7,18 @@ import { ScrollViewContainer, ViewContainer } from '@components';
 import { useAppSafeArea } from '@hooks';
 import { useAppTheme } from '@hooks';
 
-import { Box, TouchableOpacityBox } from '../Box/Box';
+import { Box, BoxProps, TouchableOpacityBox } from '../Box/Box';
 import { Icon } from '../Icon/Icon';
 import { Text } from '../Text/Text';
 
 
-
-
-interface ScreenProps {
+interface ScreenProps extends BoxProps{
     children: React.ReactNode;
     canGoBack?: boolean;
     scrollable?: boolean;
 }
 
-export function Screen({ children, canGoBack = false, scrollable = false }: ScreenProps) {
+export function Screen({ children, canGoBack = false, scrollable = false, style }: ScreenProps) {
     const { top, bottom } = useAppSafeArea();
     const {colors} = useAppTheme();
     const navigation = useNavigation();
@@ -36,7 +34,7 @@ export function Screen({ children, canGoBack = false, scrollable = false }: Scre
                 <Box
                     paddingHorizontal="s24"
                     paddingBottom="s24"
-                    style={{ paddingTop: top, paddingBottom: bottom }}
+                    style={[{ paddingTop: top, paddingBottom: bottom }, style]}
                     backgroundColor="grayWhite"
                 >
                     {canGoBack && (
