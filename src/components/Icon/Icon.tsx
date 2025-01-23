@@ -43,7 +43,7 @@ export interface IconBase {
 export interface IconProps {
     name: IconNames;
     size?: number;
-    color: ThemeColors;
+    color?: ThemeColors;
     onPress?: () => void;
 }
 

@@ -5,6 +5,7 @@ import { Post } from '@models';
 import { Box } from '@components';
 
 import { PostHeader } from './components/PostHeader';
+import { PostActions } from './components/PostIcons';
 import { PostImage } from './components/PostImage';
 
 interface Props{
@@ -18,6 +19,11 @@ export function PostItem({post}: Props){
         >
             <PostHeader author={post.author}/>
             <PostImage imageURL={post.imageURL}/>
+            <PostActions 
+                commentCount={post.commentCount}
+                favoriteCount={post.favoriteCount}
+                reactionCount={post.reactionCount}
+            />
         </Box>
     );
 }
